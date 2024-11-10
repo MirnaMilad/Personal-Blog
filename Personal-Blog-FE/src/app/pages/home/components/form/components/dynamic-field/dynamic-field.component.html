@@ -1,0 +1,19 @@
+<ng-container>
+  @switch (field.type) { @case ('password') {
+  <app-dynamic-password-input
+    [field]="field"
+    [formName]="formName"
+  ></app-dynamic-password-input>
+  } @case ('search-selectbox') {
+  <app-dynamic-search-selectbox
+    [field]="field"
+    [formName]="formName"
+    [formValue]="formValue"
+    (OptionEmmitter)="getOptionData($event)"
+  ></app-dynamic-search-selectbox>
+  } @case ('text-area') {
+  <app-text-area [field]="field" [formName]="formName"></app-text-area>
+  } @default {
+  <app-dynamic-input [field]="field" [formName]="formName"></app-dynamic-input>
+  } }
+</ng-container>

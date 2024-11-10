@@ -1,0 +1,36 @@
+<form [formGroup]="dynamicFormGroup" (ngSubmit)="onSubmitForm()">
+  <div class="w-100 justify-content-between">
+    @for (field of fields; track field.fieldName) {
+    <div class="field-container mb-4" [ngClass]="'col-' + field.col">
+      <app-dynamic-field
+        [field]="field"
+        [formName]="dynamicFormGroup"
+      ></app-dynamic-field>
+      <app-dynamic-error
+        [fieldName]="field['fieldName']"
+        [fieldLabel]="field['placeHolder']"
+      ></app-dynamic-error>
+    </div>
+    }
+  </div>
+  <div
+    class="button-container mt-5"
+    [ngClass]="{
+      'text-left': buttonConfig.buttonAlignment === 'left',
+      'text-center': buttonConfig.buttonAlignment === 'center',
+      'text-right': buttonConfig.buttonAlignment === 'right',
+    }"
+  >
+    <button
+      class="btn submit-button"
+      type="submit"
+      [disabled]="buttonConfig.isLoading"
+      [ngStyle]="{
+        width: buttonConfig.buttonWidth,
+        height: buttonConfig.buttonHeight,
+      }"
+    >
+      {{ !buttonConfig.isLoading ? buttonName : "...Loading" }}
+    </button>
+  </div>
+</form>

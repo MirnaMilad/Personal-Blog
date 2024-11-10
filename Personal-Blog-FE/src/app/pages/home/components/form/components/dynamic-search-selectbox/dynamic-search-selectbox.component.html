@@ -1,0 +1,34 @@
+<div [ngClass]="{ 'card p-3 bg-light': field.category === 'font' }">
+  @if (field.category === 'font') {
+    <h2 class="fs-24">{{ this.selectedItem }}</h2>
+    <h4 class="py-2 fs-14">{{ field.cardSubTitle }}</h4>
+  }
+
+  <form [formGroup]="formName">
+    <div class="custom-dropdown">
+      <input
+        type="text"
+        class="form-control theme-input"
+        [id]="field.fieldName"
+        [formControlName]="field.fieldName"
+        [placeholder]="field.placeHolder"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        (input)="onSearch($event)"
+        (click)="toggleDropdown()" />
+      <div class="dropdown-menu">
+        @if (!filteredItems || filteredItems.length === 0) {
+          There is no data
+        }
+        @for (item of filteredItems; track item) {
+          <button
+            class="dropdown-item fs-16 fw-600"
+            (click)="selectItem(item)"
+            tabindex="0">
+            {{ item.value }}
+          </button>
+        }
+      </div>
+    </div>
+  </form>
+</div>

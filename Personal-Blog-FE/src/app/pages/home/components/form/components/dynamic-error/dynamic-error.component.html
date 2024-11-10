@@ -1,0 +1,25 @@
+@if (
+  formName.controls[fieldName].invalid &&
+  (formName.controls[fieldName].dirty || formName.controls[fieldName].touched)
+) {
+  <div class="input-group error-container">
+    <!-- Check errors directly after ensuring the control exists -->
+    @if (formName.controls[fieldName]) {
+      <ng-container>
+        @if (formName.controls[fieldName].errors?.['required']) {
+          <span> {{ fieldLabel }} is required </span>
+        }
+        @if (formName.controls[fieldName].errors?.['email']) {
+          <span> Email is not valid </span>
+        }
+        @if (formName.controls[fieldName].errors?.['pattern']) {
+          <span>
+            password must contain minimum 8 characters, at least one upper case
+            English letter , at least one lower case English letter, one number
+            and one special character
+          </span>
+        }
+      </ng-container>
+    }
+  </div>
+}

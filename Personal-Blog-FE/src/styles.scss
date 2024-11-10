@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+GB+S:wght@100..400&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Playwrite GB S", cursive;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

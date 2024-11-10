@@ -1,0 +1,14 @@
+.theme-input {
+  height: 2.313rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--stroke-input);
+
+  &::placeholder {
+    color: var(--secondary-light-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}

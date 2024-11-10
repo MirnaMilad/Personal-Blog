@@ -1,0 +1,15 @@
+<form [formGroup]="formName">
+  <input
+    class="w-100 form-control"
+    [ngClass]="[
+      field.class ? field.class : '',
+      formName.controls[field.fieldName].invalid &&
+      (formName.controls[field.fieldName].dirty ||
+        formName.controls[field.fieldName].touched)
+        ? 'is-invalid'
+        : '',
+    ]"
+    [type]="field.type"
+    [formControlName]="field.fieldName"
+    [placeholder]="field.label || field.placeHolder" />
+</form>
