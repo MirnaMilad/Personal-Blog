@@ -2,7 +2,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends , HTTPException, status 
 from pydantic import BaseModel
 from pytest import Session
-from models import Users
+from model import Users
 from passlib.context import CryptContext
 from database import SessionLocal
 

@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 from datetime import datetime 
 from fastapi import APIRouter
 from database import SessionLocal
-from models import PersonalBlogs
+from model import PersonalBlogs
 
 
 router = APIRouter()
